@@ -10,7 +10,7 @@ if [ "$#" -eq "2" ]; then
 		then 
 			for i in "$valid_race_types";
 			do
-				if ["$2" == "$i"];
+				if [ "$2" == "$i" ];
 				then
 					curl http://api.sportradar.us/nascar-ot3/"$2"/"$1"/drivers/list.xml?api_key=${SPORTRADAR_API} -o drivers_list.xml
 
