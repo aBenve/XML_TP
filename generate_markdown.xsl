@@ -34,6 +34,9 @@
                 <xsl:with-param name="driver" select="$driver"/>
             </xsl:call-template>
         </xsl:when>
+        <xsl:otherwise>
+---
+        </xsl:otherwise>
     </xsl:choose>
 </xsl:template>
 
