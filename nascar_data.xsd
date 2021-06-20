@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<xsd:element name="nascar_data" type="resultT"/>
+ <xsd:complexType name="resultT">
+   <xsd:choice>
+       <xsd:sequence>
+           <xsd:element name="year" type="xsd:int"/>
+           <xsd:element name="serie_type" type="xsd:string"/>
+           <xsd:element name="drivers">
+               <xsd:complexType>
+                   <xsd:sequence>
+                       <xsd:element name="driver" type="driverT" minOccurs="1" maxOccurs="unbounded" />
+                   </xsd:sequence>
+              </xsd:complexType>
+           </xsd:element>
+       </xsd:sequence>
+    	<xsd:element name="error" type="xsd:string" minOccurs="0" maxOccurs="unbounded" />
+   </xsd:choice>
+ </xsd:complexType>
+
+ <xsd:complexType name="driverT">
+   <xsd:sequence>
+ 		<xsd:element name="full_name" type="xsd:string"/>
+        <xsd:element name="country" type="xsd:string"/>
+        <xsd:element name="birth_date" type="xsd:string"/>
+        <xsd:element name="birth_place" type="xsd:string"/>
+        <xsd:element name="rank" type="xsd:string"/>
+        <xsd:element name="car" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="statistics" type="statisticsT"/>
+ 	</xsd:sequence>
+</xsd:complexType>
+
+ <xsd:complexType name="statisticsT">
+  <xsd:sequence>
+    <xsd:element name="season_points" type="xsd:string"/>
+    <xsd:element name="wins" type="xsd:string"/>
+    <xsd:element name="poles" type="xsd:string"/>
+    <xsd:element name="races_not_finished" type="xsd:string"/>
+    <xsd:element name="laps_completed" type="xsd:string"/>
+  </xsd:sequence>
+ </xsd:complexType>
+
+</xsd:schema>
