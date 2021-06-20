@@ -3,18 +3,22 @@
 valid_race_types=("sc" "xf" "cw" "go" "mc" "enas")
 valid_dates=("2013" "2021")
 
-if [ "$#" -eq "2" ]; then 
+if [ "$#" -eq "2" ]; then
 	if [ "$1" -ge "${valid_dates[0]}" ];
-	then 
+	then
 		if [ "$1" -le "${valid_dates[1]}" ];
-		then 
+		then
 			for i in "$valid_race_types";
 			do
 				if [ "$2" == "$i" ];
 				then
 					curl http://api.sportradar.us/nascar-ot3/"$2"/"$1"/drivers/list.xml?api_key=${SPORTRADAR_API} -o drivers_list.xml
 
+					java net.sf.saxon.Transform -s:drivers_list.xml -xsl:remove_xmlns.xsl  [ -o:drivers_list.xml ]
+
 					curl http://api.sportradar.us/nascar-ot3/"$2"/"$1"/standings/drivers.xml?api_key=${SPORTRADAR_API} -o drivers_standings.xml
+
+					java net.sf.saxon.Transform -s:drivers_standings.xml -xsl:remove_xmlns.xsl [ -o:drivers_standings.xml ]
 
 					java net.sf.saxon.Query extract_nascar_data.xq !indent=yes -o:nascar_data.xml
 
