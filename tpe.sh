@@ -10,7 +10,7 @@ if [ "$#" -eq "2" ]; then
 	then
 		if [ "$1" -le "${valid_dates[1]}" ];
 		then
-			for i in "$valid_race_types";
+			for i in "${valid_race_types[@]}";
 			do
 				if [ "$2" == "$i" ];
 				then
@@ -30,6 +30,7 @@ if [ "$#" -eq "2" ]; then
 
 				fi
 			done
+
 			if [ "$founded" == "1" ];
 			then
 		   		echo "Parameter 2: 'race_type' is incorrect"
