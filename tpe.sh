@@ -25,6 +25,8 @@ if [ "$#" -eq "2" ]; then
 					java net.sf.saxon.Query extract_nascar_data.xq !indent=yes -o:nascar_data.xml
 
 					java net.sf.saxon.Transform -s:nascar_data.xml -xsl:generate_markdown.xsl -o:nascar_page.md
+
+					java net.sf.saxon.Transform -s:nascar_data.xml -xsl:generate_markdown_html.xsl -o:nascar_page_html.html
 				
 					founded="0"
 
