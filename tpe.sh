@@ -14,27 +14,33 @@ if [ "$#" -eq "2" ]; then
 			do
 				if [ "$2" == "$i" ];
 				then
+
+					# Si los argumentos son validos, se almacena la informacion en nascar_data.xml
+
 					curl http://api.sportradar.us/nascar-ot3/"$2"/"$1"/drivers/list.xml?api_key=${SPORTRADAR_API} -o drivers_list.xml
 					java net.sf.saxon.Transform -s:drivers_list.xml -xsl:remove_xmlns.xsl  -o:drivers_list.xml
 					curl http://api.sportradar.us/nascar-ot3/"$2"/"$1"/standings/drivers.xml?api_key=${SPORTRADAR_API} -o drivers_standings.xml
 					java net.sf.saxon.Transform -s:drivers_standings.xml -xsl:remove_xmlns.xsl -o:drivers_standings.xml
 					java net.sf.saxon.Query extract_nascar_data.xq !indent=yes -o:nascar_data.xml
-					java net.sf.saxon.Transform -s:nascar_data.xml -xsl:generate_markdown.xsl -o:nascar_page.md
-					java net.sf.saxon.Transform -s:nascar_data.xml -xsl:generate_markdown_html.xsl -o:nascar_page_html.html
+
 					founded="0"
 				fi
 			done
-
 			if [ "$founded" == "1" ];
 			then
-		   		echo "Parameter 2: 'race_type' is incorrect"
+		   		./get_error.sh "Parameter 2: 'race_type' is incorrect"
 		   	fi
 		else
-			echo "Parameter 1: 'year' must be lesser than or equal to '2021' "
+			./get_error.sh "Parameter 1: 'year' must be lesser than or equal to '2021' "
 		fi
 	else
-		echo "Parameter 1: 'year' must be greater than or equal to '2013' "
+		./get_error.sh "Parameter 1: 'year' must be greater than or equal to '2013' "
 	fi
 else
-	echo "There is needed 2 parameters: 'year' 'race_type' "
+	./get_error.sh "There is needed 2 parameters: 'year' 'race_type' "
 fi
+
+# Sea que llego con error o no, se ejecuta y se obtiene un markdown y pagina HTML
+
+java net.sf.saxon.Transform -s:nascar_data.xml -xsl:generate_markdown.xsl -o:nascar_page.md
+java net.sf.saxon.Transform -s:nascar_data.xml -xsl:generate_markdown_html.xsl -o:nascar_page_html.html
