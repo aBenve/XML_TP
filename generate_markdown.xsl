@@ -1,7 +1,13 @@
 <?xml version="1.0"?>
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
-<xsl:template match="nascar_data">
+<xsl:template match="//error">
+#### <xsl:value-of select="."/>
+</xsl:template>
+
+
+
+<xsl:template match="nascar_data[not(./error)]">
 # Drivers for NARCAR <xsl:value-of select="./serie_type"/> Series for <xsl:value-of select="./year"/> season
 ---
 ---
@@ -10,7 +16,6 @@
         <xsl:with-param name="driver" select="."/>
     </xsl:call-template>
 </xsl:for-each>
-
 </xsl:template>
 
 <xsl:template name="driversEstructure">
