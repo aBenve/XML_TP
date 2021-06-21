@@ -19,10 +19,11 @@ if [ "$#" -eq "2" ]; then
 
 					curl http://api.sportradar.us/nascar-ot3/"$2"/"$1"/drivers/list.xml?api_key=${SPORTRADAR_API} -o drivers_list.xml
 					java net.sf.saxon.Transform -s:drivers_list.xml -xsl:remove_xmlns.xsl  -o:drivers_list.xml
+					
 					curl http://api.sportradar.us/nascar-ot3/"$2"/"$1"/standings/drivers.xml?api_key=${SPORTRADAR_API} -o drivers_standings.xml
 					java net.sf.saxon.Transform -s:drivers_standings.xml -xsl:remove_xmlns.xsl -o:drivers_standings.xml
+					
 					java net.sf.saxon.Query extract_nascar_data.xq !indent=yes -o:nascar_data.xml
-
 					founded="0"
 				fi
 			done
