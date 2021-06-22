@@ -28,7 +28,7 @@
                 </h3>
             </div>
             <p class="card-text mb-0">
-                Pruebe nuevamente cambiando los argumentos.
+                Try again by changing the arguments.
             </p>
         </div>
     </div>
