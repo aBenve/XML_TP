@@ -19,13 +19,10 @@
 						else "-"
 						}
 					</rank>
-					<car>
-						{
-						if($a/car/manufacturer)
-						then data($a/car[1]/manufacturer/@name)
-						else "-"
-						}
-					</car>
+					if($a/car)
+						then <car>{data($a/car[1]/manufacturer/@name)}</car>
+						else()
+					}
 					<statistic>
 						<season_points>{data($b/driver[@id = $a/@id]/@points)}</season_points>
 						<wins>{data($b/driver[@id = $a/@id]/@wins)}</wins>
