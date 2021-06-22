@@ -93,11 +93,11 @@
     <div>
     <h4 class="text-center"> Statistics </h4>
     <div class="list-group">
-        <a href="#" class="list-group-item list-group-item-action list-group-item-light">Season points: <xsl:value-of select="//$driver/statistic/season_points"/></a>
-        <a href="#" class="list-group-item list-group-item-action list-group-item-success">Wins: <xsl:value-of select="//$driver/statistic/wins"/> </a>
-        <a href="#" class="list-group-item list-group-item-action list-group-item-light">Poles: <xsl:value-of select="//$driver/statistic/poles"/> </a>
-        <a href="#" class="list-group-item list-group-item-action list-group-item-danger">Races not finished: <xsl:value-of select="//$driver/statistic/races_not_finished"/> </a>
-        <a href="#" class="list-group-item list-group-item-action list-group-item-light">Laps Completed: <xsl:value-of select="//$driver/statistic/laps_completed"/> </a>
+        <a href="#" class="list-group-item list-group-item-action list-group-item-light">Season points: <xsl:value-of select="//$driver/statistics/season_points"/></a>
+        <a href="#" class="list-group-item list-group-item-action list-group-item-success">Wins: <xsl:value-of select="//$driver/statistics/wins"/> </a>
+        <a href="#" class="list-group-item list-group-item-action list-group-item-light">Poles: <xsl:value-of select="//$driver/statistics/poles"/> </a>
+        <a href="#" class="list-group-item list-group-item-action list-group-item-danger">Races not finished: <xsl:value-of select="//$driver/statistics/races_not_finished"/> </a>
+        <a href="#" class="list-group-item list-group-item-action list-group-item-light">Laps Completed: <xsl:value-of select="//$driver/statistics/laps_completed"/> </a>
     </div>
     <br/>
     </div>
