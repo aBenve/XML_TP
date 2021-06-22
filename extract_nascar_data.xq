@@ -19,7 +19,7 @@
 						else "-"
 						}
 					</rank>
-					if($a/car)
+					if($a/car) {
 						then <car>{data($a/car[1]/manufacturer/@name)}</car>
 						else()
 					}
