@@ -23,13 +23,13 @@
 						then <car>{data($a/car[1]/manufacturer/@name)}</car>
 						else()
 					}
-					<statistic>
+					<statistics>
 						<season_points>{data($b/driver[@id = $a/@id]/@points)}</season_points>
 						<wins>{data($b/driver[@id = $a/@id]/@wins)}</wins>
 						<poles>{data($b/driver[@id = $a/@id]/@poles)}</poles>
 						<races_not_finished>{data($b/driver[@id = $a/@id]/@dnf)}</races_not_finished>
 						<laps_completed>{data($b/driver[@id = $a/@id]/@laps_completed)}</laps_completed>
-					</statistic>
+					</statistics>
 				</driver>
 		}
 	</drivers>
