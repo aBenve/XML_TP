@@ -21,7 +21,11 @@ if [ "$#" -eq "2" ]; then
 					if [ "$2" == "${special_race_date[0]}" ];
 					then
 						if [ "$1" -ne "${special_race_date[1]}" ];
-						then ./get_error.sh "Parameter 1: Parameter 2 is ok but ' "${special_race_date[0]}" ' its only supported for ' "${special_race_date[1]}" ' season"
+						then ./get_error.sh "Parameter 1: Parameter 2 is ok but ' "${special_race_date[0]}" ' its only supported for ' "${special_race_date[1]}"
+ ' season"
+						java net.sf.saxon.Transform -s:nascar_data.xml -xsl:generate_markdown.xsl -o:nascar_page.md
+						java net.sf.saxon.Transform -s:nascar_data.xml -xsl:generate_markdown_html.xsl -o:nascar_page_html.html
+						exit 1
 						fi
 					fi
 					
