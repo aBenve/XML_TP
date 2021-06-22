@@ -8,7 +8,7 @@
 
 
 <xsl:template match="nascar_data[not(./error)]">
-# Drivers for NARCAR <xsl:value-of select="./serie_type"/> Series for <xsl:value-of select="./year"/> season
+# Drivers for <xsl:value-of select="./serie_type"/> Series for <xsl:value-of select="./year"/> season
 ---
 ---
 <xsl:for-each select="./drivers/driver">
