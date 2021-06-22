@@ -37,7 +37,7 @@
 
 <xsl:template match="nascar_data[./drivers]">
 
-        <h1 class="text-center text-dark">Drivers for NARCAR <xsl:value-of select="./serie_type"/> Series for <xsl:value-of select="./year"/> season</h1>
+        <h1 class="text-center text-dark">Drivers for <xsl:value-of select="./serie_type"/> Series for <xsl:value-of select="./year"/> season</h1>
         <div class="container">
             <br/>
             <div class="row">
