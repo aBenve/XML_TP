@@ -1,6 +1,6 @@
 <nascar_data xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="nascar_data.xsd">
 	<year>{data(doc("drivers_list.xml")//series/season/@year)}</year>
-	<serie_type>{data(doc("drivers_list.xml")//series/@alias)}</serie_type>
+	<serie_type>{data(doc("drivers_list.xml")//series/@name)}</serie_type>
 	<drivers>
 		{
 		for $a in doc("drivers_list.xml")//series/season/driver,
