@@ -12,13 +12,6 @@
 					<country>{data($a/@country)}</country>
 					<birth_date>{data($a/@birthday)}</birth_date>
 					<birth_place>{data($a/@birth_place)}</birth_place>
-					<car>
-						{
-						if($a/car/manufacturer)
-						then data($a/car[1]/manufacturer/@name)
-						else "-"
-						}
-					</car>
 					<rank>
 						{
 						if(some $c in $b satisfies ($c/driver/@id = $a/@id))
@@ -26,6 +19,13 @@
 						else "-"
 						}
 					</rank>
+					<car>
+						{
+						if($a/car/manufacturer)
+						then data($a/car[1]/manufacturer/@name)
+						else "-"
+						}
+					</car>
 					<statistic>
 						<season_points>{data($b/driver[@id = $a/@id]/@points)}</season_points>
 						<wins>{data($b/driver[@id = $a/@id]/@wins)}</wins>
