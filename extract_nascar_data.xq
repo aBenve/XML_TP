@@ -18,8 +18,9 @@
 						then data($b/driver[@id = $a/@id]/@rank)
 						else "-"
 						}
-					</rank>
-					if($a/car) {
+					</rank> 
+					{
+					if($a/car) 
 						then <car>{data($a/car[1]/manufacturer/@name)}</car>
 						else()
 					}
