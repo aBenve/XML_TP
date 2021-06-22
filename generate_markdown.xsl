@@ -55,11 +55,11 @@
 <xsl:template name="getStatistics">
     <xsl:param name="driver"/>
     ##### Statistics
-    - Season points: <xsl:value-of select="//$driver/statistic/season_points"/>
-    - Wins: <xsl:value-of select="//$driver/statistic/wins"/> 
-    - Poles: <xsl:value-of select="//$driver/statistic/poles"/> 
-    - Races not finished: <xsl:value-of select="//$driver/statistic/races_not_finished"/> 
-    - Laps Completed: <xsl:value-of select="//$driver/statistic/laps_completed"/> 
+    - Season points: <xsl:value-of select="//$driver/statistics/season_points"/>
+    - Wins: <xsl:value-of select="//$driver/statistics/wins"/> 
+    - Poles: <xsl:value-of select="//$driver/statistics/poles"/> 
+    - Races not finished: <xsl:value-of select="//$driver/statistics/races_not_finished"/> 
+    - Laps Completed: <xsl:value-of select="//$driver/statistics/laps_completed"/> 
 ---
 </xsl:template>
 </xsl:stylesheet>
