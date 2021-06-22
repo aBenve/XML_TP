@@ -31,7 +31,14 @@
 1. Country: <xsl:value-of select="//$driver/country"/> 
 2. Birth date: <xsl:value-of select="//$driver/birth_date"/> 
 3. Birthplace: <xsl:value-of select="//$driver/birth_place"/> 
+<xsl:choose>
+        <xsl:when test="//$driver[./car] ">
 4. Car manufacturer: <xsl:value-of select="//$driver/car"/> 
+        </xsl:when>
+        <xsl:otherwise>
+4. Car manufacturer: -
+    </xsl:otherwise>
+</xsl:choose>
 5. Rank: <xsl:value-of select="//$driver/rank"/> 
     <xsl:choose>
         <xsl:when test="not(contains($driver/rank, '-')) ">
